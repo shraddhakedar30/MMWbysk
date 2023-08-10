@@ -1,0 +1,36 @@
+<html>
+<head>
+<title> MMW by Shraddha Kedar </title>
+<style>
+*{font-size:50px;}
+h1{background-color:black; color:white; 
+   width:50%; border-radius:30px;}
+body{background-color:azure;}
+
+</style>
+<script>
+function getmsg()
+{
+event.preventDefault();
+let ans = document.getElementById("ans");
+let url ="https://api.quotable.io/random" 
+fetch(url)
+.then(res => res.json())
+.then(data => ans.innerHTML = data.content + " -" + data.author)
+.catch(err => ans.innerHTML = "issue" + err);
+}
+
+</script>
+
+</head>
+<body>
+<center>
+<h1>Motivational Msg APP</h1>
+<form onsubmit="getmsg()">
+<input type ="submit" value ="GET MSG"/>
+</form>
+<h1 id = "ans"></h1>
+
+</center>
+</body>
+</html>
